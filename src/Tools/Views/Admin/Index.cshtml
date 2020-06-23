@@ -1,0 +1,18 @@
+@model Tools.OrchardCore.ViewModels.SiteModel
+
+<h1>@RenderTitleSegments(T["Site Settings"])</h1>
+<div class="row">
+<div class="col">
+    <form asp-action="Index" asp-route-returnUrl="@Context.Request.Query["ReturnUrl"]" method="post">
+        @Html.ValidationSummary()
+
+        <div class="form-group form-check" asp-validation-class-for="HomeRoute">
+            <label asp-for="HomeRoute">@T["HomeRoute"]</label>
+            <textarea asp-for="HomeRoute" class="form-control" rows="8"></textarea>
+            <span asp-validation-for="HomeRoute"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">@T["Set home route"]</button>
+    </form>
+    </div>
+</div>
